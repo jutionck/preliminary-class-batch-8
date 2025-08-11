@@ -58,16 +58,23 @@ const battle = (team, enemy) => {
 
     round++;
   }
-  return { team, enemy };
+  // pastikan hero yang sudah gugur tidak lagi ada di dalam array hasil
+  const remainingTeam = team.filter((h) => h.hp > 0);
+  const remainingEnemy = enemy.filter((h) => h.hp > 0);
+  return { team: remainingTeam, enemy: remainingEnemy };
 };
 
-const result = battle(team, enemy);
+// tangkap hasil dari pertarungan sehingga bisa dipakai untuk pengecekan
+const { team: finalTeam, enemy: finalEnemy } = battle(team, enemy);
 
 console.log();
 
-if (result.team.length > 0 && result.enemy.length === 0) {
+console.log('Sisa tim:', finalTeam);
+console.log('Sisa musuh:', finalEnemy);
+
+if (finalTeam.length > 0 && finalEnemy.length === 0) {
   console.log('TIM memenangkan pertandingan');
-} else if (result.enemy.length > 0 && result.team.length === 0) {
+} else if (finalEnemy.length > 0 && finalTeam.length === 0) {
   console.log('Musuh memenangkan pertandingan');
 } else {
   console.log('Wah seri nih boss...');
