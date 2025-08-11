@@ -16,6 +16,7 @@ const enemy = [
 // pass by reference...
 const attack = (attacker, defender) => {
   defender.hp -= attacker.damage;
+  if (defender.hp < 0) defender.hp = 0;
 };
 // siapkan fungsi bertarung
 const battle = (team, enemy) => {
@@ -29,6 +30,8 @@ const battle = (team, enemy) => {
     // TIM menyerang musuh
     // manfaatkan looping modern
     team.forEach((hero, i) => {
+      if (hero.hp <= 0) return;
+
       if (i < enemy.length) {
         attack(hero, enemy[i]);
         console.log(
@@ -41,6 +44,8 @@ const battle = (team, enemy) => {
 
     // ENEMY menyerah tim
     enemy.forEach((hero, i) => {
+      if (hero.hp <= 0) return;
+
       if (i < team.length) {
         attack(hero, team[i]);
         console.log(
@@ -55,7 +60,10 @@ const battle = (team, enemy) => {
   }
 };
 
-// Hasil
+battle(team, enemy);
+
+console.log();
+
 if (team.length > 0) {
   console.log('TIM memenangkan pertandingan');
 } else if (enemy.length > 0) {
@@ -63,5 +71,3 @@ if (team.length > 0) {
 } else {
   console.log('Wah seri nih boss...');
 }
-
-battle(team, enemy);
