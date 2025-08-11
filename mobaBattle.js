@@ -58,12 +58,17 @@ const battle = (team, enemy) => {
 
     round++;
   }
-  return { team, enemy };
+  // pastikan hero yang sudah gugur tidak lagi ada di dalam array hasil
+  const remainingTeam = team.filter((h) => h.hp > 0);
+  const remainingEnemy = enemy.filter((h) => h.hp > 0);
+  return { team: remainingTeam, enemy: remainingEnemy };
 };
 
 const { team: finalTeam, enemy: finalEnemy } = battle(team, enemy);
 
 console.log();
+console.log('Sisa tim:', finalTeam);
+console.log('Sisa musuh:', finalEnemy);
 
 if (finalTeam.length > 0 && finalEnemy.length === 0) {
   console.log('TIM memenangkan pertandingan');
