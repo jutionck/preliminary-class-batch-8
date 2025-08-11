@@ -31,6 +31,8 @@ const decideStrategy = (teamGold, enemyTurret, teamHP, teamKill, enemyKill) => {
     console.log('Push semua lane....');
     return;
   }
+
+  console.log('Farming aja dulu...');
 };
 
 console.log('===Total Gold===');
