@@ -25,7 +25,7 @@ const battle = (team, enemy) => {
   // stopper:
   let round = 1;
   while (team.length > 0 && enemy.length > 0) {
-    console.log('====Rounde:', round);
+    console.log('====Round:', round);
 
     // TIM menyerang musuh
     // manfaatkan looping modern
