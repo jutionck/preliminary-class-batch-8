@@ -25,7 +25,7 @@ const battle = (team, enemy) => {
   // stopper:
   let round = 1;
   while (team.length > 0 && enemy.length > 0) {
-    console.log('====Rounde:', round);
+    console.log('====Round:', round);
 
     // TIM menyerang musuh
     // manfaatkan looping modern
@@ -64,11 +64,9 @@ const battle = (team, enemy) => {
   return { team: remainingTeam, enemy: remainingEnemy };
 };
 
-// tangkap hasil dari pertarungan sehingga bisa dipakai untuk pengecekan
 const { team: finalTeam, enemy: finalEnemy } = battle(team, enemy);
 
 console.log();
-
 console.log('Sisa tim:', finalTeam);
 console.log('Sisa musuh:', finalEnemy);
 

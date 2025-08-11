@@ -53,7 +53,7 @@ let inventories = ['Sepatu', 'Lari Kencang'];
 
 // Pass by value
 const addGold = (g) => {
-  g += 1000; // g = g + 100
+  g += 1000; // g = g + 1000
   console.log('Gold di dalam function addGold:', g);
 };
 
