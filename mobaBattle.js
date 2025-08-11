@@ -58,15 +58,16 @@ const battle = (team, enemy) => {
 
     round++;
   }
+  return { team, enemy };
 };
 
-battle(team, enemy);
+const result = battle(team, enemy);
 
 console.log();
 
-if (team.length > 0) {
+if (result.team.length > 0 && result.enemy.length === 0) {
   console.log('TIM memenangkan pertandingan');
-} else if (enemy.length > 0) {
+} else if (result.enemy.length > 0 && result.team.length === 0) {
   console.log('Musuh memenangkan pertandingan');
 } else {
   console.log('Wah seri nih boss...');
