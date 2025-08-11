@@ -12,6 +12,8 @@ const enemy = {
   kill: 28,
 };
 
+// a = 0 | 2000
+// b = 2000 | 10500
 const sum = (arr) => arr.reduce((a, b) => a + b, 0);
 const avg = (arr) => sum(arr) / arr.length;
 
